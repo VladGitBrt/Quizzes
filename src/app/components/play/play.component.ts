@@ -20,10 +20,14 @@ export class PlayComponent implements OnInit {
   private destroy$ = new Subject<void>();
   selectedAnswer?: string;
   private correctAnswers: IQuestion['correct_answer'][] = [];
+  private unsubscribe$ = new Subject<void>();
+
+
   constructor(private quizDataService: QuizDataService, private router: Router, private resultsService: QuizResultsService){}
 
   ngOnInit(): void {
     this.quizDataService.currentQuiz$
+      .pipe(takeUntil(this.unsubscribe$))
       .subscribe((passData: BehaviorSubject<IQuiz | null>) => {
         if(passData.value) {
           this.quiz = passData.value;

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin, map, Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { IQuestion, IQuiz, IQuizResponse } from '../../core/models/quiz.model';
 
 @Injectable({

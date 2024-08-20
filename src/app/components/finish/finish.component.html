@@ -1,0 +1,8 @@
+<div class="final">
+    <app-back-button></app-back-button>
+    <div class="final-container">
+        <span class="total-answers">Correct: {{quizResults?.points}} out of {{quizResults?.totalQuestions}}</span>
+        <mat-progress-bar mode="determinate" [value]="quizResults?.precentage"></mat-progress-bar>
+        <span class="precentage">{{quizResults?.precentage}}%</span>
+    </div>
+</div>

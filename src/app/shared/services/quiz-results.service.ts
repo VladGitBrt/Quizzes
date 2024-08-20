@@ -14,4 +14,8 @@ export class QuizResultsService {
     const precentage = (points / totalQuestions) * 100;
     this.quizResults.next({points,precentage,totalQuestions,time});
   }
+
+  public formatTime(value: number): string {
+    return value < 10 ? `0${value}` : `${value}`;
+  }
 }

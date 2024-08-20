@@ -23,7 +23,7 @@ export class PlayComponent implements OnInit {
   private unsubscribe$ = new Subject<void>();
 
 
-  constructor(private quizDataService: QuizDataService, private router: Router, private resultsService: QuizResultsService){}
+  constructor(private quizDataService: QuizDataService, private router: Router, public resultsService: QuizResultsService){}
 
   ngOnInit(): void {
     this.quizDataService.currentQuiz$
@@ -62,9 +62,7 @@ export class PlayComponent implements OnInit {
     }
   }
 
-  formatTime(value: number): string {
-    return value < 10 ? `0${value}` : `${value}`;
-  }
+  
 
   finishQuiz(): void {
     this.destroy$.next(); 

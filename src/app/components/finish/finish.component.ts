@@ -10,10 +10,10 @@ import { QuizResultsService } from 'src/app/shared/services/quiz-results.service
   styleUrls: ['./finish.component.css']
 })
 export class FinishComponent implements OnInit, OnDestroy {
-  public quizResults: IQuizResults| null = null;
+  public quizResults!: IQuizResults;
 
   private unsubscribe$ = new Subject<void>();
-  constructor(private resultsService: QuizResultsService, private router: Router){}
+  constructor(public resultsService: QuizResultsService, private router: Router){}
 
   ngOnInit(): void {
     this.resultsService.quizResults$
